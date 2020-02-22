@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuessGame
 {
+    // So I Misunderstood the Task and Instead of Names, You have to guees a Number --- 
     class Program
     {
         const int MaxTrials = 10;
