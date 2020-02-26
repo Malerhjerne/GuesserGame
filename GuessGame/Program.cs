@@ -10,7 +10,7 @@ namespace GuessGame
     class Program
     {
         const int MaxTrials = 10;
-        int aOfTryes;
+        int aOftries;
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -45,21 +45,21 @@ namespace GuessGame
         public void GameLogic()
         {
           
-            Console.WriteLine("Try and guess a number between 0 - 20" + "\n" + "You have 10 attempts to get it wright");
+            Console.WriteLine("Try and guess a number between 0 - 20" + "\n" + "You have 10 attempts to get it right");
 
             var random = new Random();
-            int wrightNumber = random.Next(0, 20);
+            int rightNumber = random.Next(0, 20);
 
             
             for (int i = 0; i < 10; i++)
                 {
                 try                   
                 {
-                Console.WriteLine("Player tryes : " + (aOfTryes + 1) + "/" + MaxTrials);
+                Console.WriteLine("Player tryes : " + (aOftries + 1) + "/" + MaxTrials);
                 string stringInput = Console.ReadLine();
                 int input = Convert.ToInt16(stringInput);
 
-            if (input == wrightNumber)
+            if (input == rightNumber)
                     {
                         WinGame();
                     }
@@ -67,8 +67,8 @@ namespace GuessGame
             else
             {
                        
-                Console.WriteLine("Sorry you dint guess the wright Number");
-                aOfTryes++;
+                Console.WriteLine("Sorry you dint guess the right Number");
+                aOftries++;
                 Losegame();
                     }
 
@@ -85,38 +85,42 @@ namespace GuessGame
 
         public void Losegame()
         {
-            if (aOfTryes == MaxTrials)
+            if (aOftries == MaxTrials)
             {
                 Console.WriteLine("try again");
-                aOfTryes = 0;
+                Console.WriteLine("Please Press Enter");
+                aOftries = 0;
                 Intro();
             }
         }
 
         public void WinGame()
         {
-            Console.WriteLine("You guessed the wright number (:-) ");
-            aOfTryes++;
-            Console.WriteLine("You used:" + " " + aOfTryes +" " +"tryes!");
+            Console.WriteLine("You guessed the right number (:-) ");
+            aOftries++;
+            Console.WriteLine("You used:" + " " + aOftries +" " +"tries!");
             WinSpeech();
-            aOfTryes = 0;
+            aOftries = 0;
             Intro();
         }
 
         public void WinSpeech()
         {
-            if (aOfTryes== 1) {
+            if (aOftries== 1) {
                 Console.WriteLine("WOW NICE!");
+                Console.WriteLine("Please Press Enter");
             }
 
-            else if (aOfTryes <= 5)
+            else if (aOftries <= 5)
             {
                 Console.WriteLine("That was quick");
+                Console.WriteLine("Please Press Enter");
 
-                }
+            }
             else
             {
-                Console.WriteLine("Atleast you got it wright");
+                Console.WriteLine("Atleast you got it right");
+                Console.WriteLine("Please Press Enter");
             }
 
             }
